@@ -87,14 +87,18 @@ null_ls.setup({
 require('lspconfig').rust_analyzer.setup({
   settings = {
     ["rust-analyzer"] = {
+      checkOnSave = { command = "check" },  -- Use `check` instead of `clippy` to speed up.
       cargo = {
-        allFeatures = true
+        allFeatures = false,  -- Only load necessary features
       },
       procMacro = {
-        enable = true
-      }
-    }
-  }
+        enable = true,  -- Enable proc-macro support (if you need it)
+      },
+      diagnostic = {
+        disabled = { "unresolved-proc-macro" },  -- Disable any unnecessary diagnostics
+      },
+    },
+  },
 })
 
 
