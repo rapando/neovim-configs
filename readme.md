@@ -7,7 +7,15 @@
 First of all, install the prerequisites
 
 ```sh
-brew install lua luarocks neovim fd ripgrep fzf rust-analyzer lazygit
+# because neovim requires lua version 5.1 for some reason, install it manually
+curl -LO https://www.lua.org/ftp/lua-5.1.5.tar.gz
+tar -xvf lua-5.1.5.tar.gz
+cd lua-5.1.5
+make macosx
+sudo make install
+lua -v
+
+brew install luarocks neovim fd ripgrep fzf rust-analyzer lazygit
 ```
 
 Install tools
