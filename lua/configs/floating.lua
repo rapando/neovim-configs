@@ -25,3 +25,4 @@ require("noice").setup({
         command_palette = true,    -- Command palette view
     },
 })
+

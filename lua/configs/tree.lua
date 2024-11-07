@@ -9,10 +9,10 @@ require("nvim-tree").setup({
         side = "left",
     },
     filters = {
-        dotfiles = false,  -- Show hidden files
+        dotfiles = false,  -- show all dotfiles by default
     },
     git = {
-        ignore = false,
+        ignore = false,  -- Show gitignored files
     },
     renderer = {
         icons = {
@@ -24,6 +24,7 @@ require("nvim-tree").setup({
         },
     },
 })
+
 
 -- <C-n> opens/closes nvim-tree
 vim.api.nvim_set_keymap("n", "<C-n>", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
