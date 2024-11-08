@@ -24,6 +24,7 @@ vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.guicursor = ""
 vim.opt.softtabstop = 2
+vim.opt.showtabline = 2
 vim.cmd("filetype plugin indent on")
 vim.cmd("syntax enable")
 vim.opt.clipboard:append("unnamedplus")
