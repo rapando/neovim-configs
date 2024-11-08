@@ -42,6 +42,8 @@ Install tools
 rustup component add clippy-preview rust-src rustfmt
 ```
 
+Download a nerd font from this [website](https://www.nerdfonts.com/font-downloads) and set it as your terminal font.
+
 Install these configs
 
 ```sh
