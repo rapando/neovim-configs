@@ -72,13 +72,6 @@ rt.setup({
     },
 })
 
--- run cargo-fmt whenever I save a rust file
-vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = "*.rs",
-  callback = function()
-    vim.cmd("silent! !cargo fmt")
-  end,
-})
 
 
 -- Setup null-ls for diagnostics and code actions
