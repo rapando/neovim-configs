@@ -61,11 +61,11 @@ rt.setup({
             vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', { noremap = true, silent = true })
             -- format the code
             vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>a', '<Cmd>lua vim.lsp.buf.code_action()<CR>', { noremap = true, silent = true })
-           -- rename a symbol
+            -- rename a symbol
             vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>r', '<Cmd>lua vim.lsp.buf.code_action()<CR>', { noremap = true, silent = true })
-          -- add missing imports
-          vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>i', '<Cmd>lua vim.lsp.buf.code_action()<CR>', { noremap = true, silent = true })
-
+            -- add missing imports
+            vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>i', '<Cmd>lua vim.lsp.buf.code_action()<CR>', { noremap = true, silent = true })
+            vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<Cmd>lua vim.slp.buf.definition()<CR>', { noremap = true, silent = true  })
 
 
         end,
