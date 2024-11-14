@@ -36,3 +36,6 @@ vim.api.nvim_set_keymap('n', '<leader>v', ':vsplit <C-R>=expand("%:p:h")<CR>/<C-
 -- Mapping to open file in a vertical split to the left
 vim.api.nvim_set_keymap('n', '<leader>V', ':leftabove Vsplit<CR>', { noremap = true, silent = true })
 
+-- Mapping to search for a file before opening it
+vim.api.nvim_set_keymap('n', '<leader>o', "<cmd>lua require('telescope.builtin').find_files()<CR>", { noremap = true, silent = true })
+
