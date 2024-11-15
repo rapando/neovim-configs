@@ -31,7 +31,14 @@ vim.opt.clipboard:append("unnamedplus")
 -- Add fzf to the runtime path (rtp)
 vim.opt.rtp:append('/opt/homebrew/opt/fzf')
 vim.opt.incsearch = true -- shows matches when you type
+-- Comment wrapping
+vim.opt.wrap = true
+vim.opt.linebreak = true
+vim.opt.textwidth = 100
+vim.opt.formatoptions:append('cro') -- auto wrap comments
 
+-- manual formatting
+vim.keymap.set('n', 'gq', 'gq', { noremap = true, silent = true })
 
 
 
