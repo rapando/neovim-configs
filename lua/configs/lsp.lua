@@ -213,7 +213,7 @@ rt.setup({
             -- Keybindings for LSP
             vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
             vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
-            vim.keymap.set("n", "<Leader>ca", rt.code_action_group.code_action_group, bufopts)
+            vim.keymap.set("n", "<Leader>c", rt.code_action_group.code_action_group, bufopts)
             vim.keymap.set("n", "<Leader>rr", rt.runnables.runnables, bufopts)
 
             -- Format on save
