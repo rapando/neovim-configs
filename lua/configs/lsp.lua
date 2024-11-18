@@ -104,6 +104,9 @@ require('lspconfig').rust_analyzer.setup({
       flags = {
           debounce_text_changes = 150,
       },
+      completion = { postExpansion = true },
+      diagnostics = { experimental = true },
+      cargo = { buildScripts = { enable = false } }, -- disable build scripts
     },
   },
 })
