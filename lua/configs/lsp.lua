@@ -93,7 +93,7 @@ require('lspconfig').rust_analyzer.setup({
         allFeatures = false,  -- load all features
       },
       procMacro = {
-        enable = false,  -- Enable proc-macro support (if you need it)
+        enable = true,  -- Enable proc-macro support (if you need it)
       },
       diagnostic = {
         disabled = { "unresolved-proc-macro" },  -- Disable any unnecessary diagnostics
