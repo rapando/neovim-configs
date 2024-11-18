@@ -198,6 +198,11 @@ require('nvim_comment').setup({
 -- RUST
 local rt = require("rust-tools")
 
+-- delay alerts
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+    timeout = 5000, -- 5 seconds
+})
+
 rt.setup({
     tools = {
         autoSetHints = true,
@@ -218,7 +223,7 @@ rt.setup({
             vim.keymap.set("n", "<Leader>rf", function()
                 vim.lsp.buf.format({ async = false })
             end)
-            vim.keymap.set("n", "<Leader>ri", function()
+            vim.keymap.set("n", "<Leader>ru", function()
                 vim.lsp.buf.code_action({
                     only = { 'source.organizeImports' },
                 })
@@ -229,6 +234,7 @@ rt.setup({
             ["rust-analyzer"] = {
                 cargo = { allFeatures = true },
                 checkOnSave = { command = "clippy" },
+                memory = { max = 4096 },
             },
         },
     },

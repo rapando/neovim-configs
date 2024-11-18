@@ -9,6 +9,13 @@ return {
             lspconfig.ts_ls.setup{}
             lspconfig.pyright.setup{}
         end,
+        opts = function()
+            setup = {
+                rust_analyzer = function()
+                    return true
+                end
+            }
+        end
     },
     {
         "hrsh7th/nvim-cmp",
