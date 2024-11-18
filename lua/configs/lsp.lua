@@ -101,6 +101,9 @@ require('lspconfig').rust_analyzer.setup({
       inlayHints = {
           enable = false,
       },
+      flags = {
+          debounce_text_changes = 150,
+      },
     },
   },
 })
