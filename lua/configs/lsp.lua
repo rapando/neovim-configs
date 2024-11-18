@@ -46,72 +46,6 @@ require('lint').linters_by_ft = {
   go = { 'golangcilint' },
 }
 
--- Rust
-local rt = require('rust-tools')
-local null_ls = require("null-ls")
-
--- Setup rust-analyzer with rust-tools
-local rt = require('rust-tools')
-
--- Setup rust-analyzer with rust-tools
-rt.setup({
-    server = {
-        on_attach = function(_, bufnr)
-            -- view the item definition
-            vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', { noremap = true, silent = true })
-            -- format the code
-            vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>a', '<Cmd>lua vim.lsp.buf.code_action()<CR>', { noremap = true, silent = true })
-            -- rename a symbol
-            vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>r', '<Cmd>lua vim.lsp.buf.code_action()<CR>', { noremap = true, silent = true })
-            -- add missing imports
-            vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>i', '<Cmd>lua vim.lsp.buf.code_action()<CR>', { noremap = true, silent = true })
-            vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<Cmd>lua vim.slp.buf.definition()<CR>', { noremap = true, silent = true  })
-
-
-        end,
-    },
-})
-
-
-
--- Setup null-ls for diagnostics and code actions
-null_ls.setup({
-    sources = {
-        -- Rust linting via Clippy
-        null_ls.builtins.diagnostics.clippy,
-
-        -- Code actions for refactoring, like removing unused imports
-        null_ls.builtins.code_actions.refactoring,
-    },
-})
-
-require('lspconfig').rust_analyzer.setup({
-  settings = {
-    ["rust-analyzer"] = {
-      checkOnSave = { command = "check" },  -- check or clippy. check is faster.
-      cargo = {
-        allFeatures = false,  -- load all features
-      },
-      procMacro = {
-        enable = true,  -- Enable proc-macro support (if you need it)
-      },
-      diagnostic = {
-        disabled = { "unresolved-proc-macro" },  -- Disable any unnecessary diagnostics
-      },
-      inlayHints = {
-          enable = true,
-      },
-      flags = {
-          debounce_text_changes = 150,
-      },
-      completion = { postExpansion = true },
-      diagnostics = { experimental = true },
-      cargo = { buildScripts = { enable = false } }, -- disable build scripts
-    },
-  },
-})
-
-
 
 -- Linting for different languages
 local lint = require('lint')
@@ -260,3 +194,51 @@ require('nvim_comment').setup({
         require('ts_context_commentstring.internal').update_commentstring()
     end,
 })
+
+-- RUST
+local rt = require("rust-tools")
+
+rt.setup({
+    tools = {
+        autoSetHints = true,
+        inlay_hints = {
+            show_parameter_hints = true,
+            parameter_hints_prefix = "<- ",
+            other_hints_prefix = "=> ",
+        },
+    },
+    server = {
+        on_attach = function(client, bufnr)
+            local bufopts = { noremap = true, silent = true, buffer = bufnr }
+            -- Keybindings for LSP
+            vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
+            vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
+            vim.keymap.set("n", "<Leader>ca", rt.code_action_group.code_action_group, bufopts)
+            vim.keymap.set("n", "<Leader>rr", rt.runnables.runnables, bufopts)
+
+            -- Format on save
+            vim.api.nvim_create_autocmd("BufWritePre", {
+                buffer = bufnr,
+                callback = function()
+                    vim.lsp.buf.format({ async = false })
+                end,
+            })
+        end,
+        settings = {
+            ["rust-analyzer"] = {
+                cargo = { allFeatures = true },
+                checkOnSave = { command = "clippy" },
+            },
+        },
+    },
+})
+
+
+
+-- treesitter settings for rust and any other language
+-- require("nvim-treesitter.configs").setup({
+  -- ensure_installed = { "rust" },
+  -- highlight = { enable = true },
+-- })
+
+

@@ -51,12 +51,11 @@ return {
         ft = { "go" }
     },
     -- Rust
-    { "hrsh7th/cmp-nvim-lsp" },
-    { "L3MON4D3/LuaSnip" },
-    { "simrat39/rust-tools.nvim" },
-    { "rust-lang/rust.vim" },
-    { "jose-elias-alvarez/null-ls.nvim" },
-    { "nvim-lua/plenary.nvim" },
+    {
+        'nvim-treesitter/nvim-treesitter', build = ':TSUpdate',
+    },
+    { 'simrat39/rust-tools.nvim' },
+    { 'nvim-lua/plenary.nvim'},
     -- Latex
     {
         "lervag/vimtex"

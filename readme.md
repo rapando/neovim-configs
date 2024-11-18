@@ -2,6 +2,7 @@
 
 ### Installation
 
+> Because of a few issues with rust setup, I have followed [this](https://github.com/letsgetrusty/neovim-rust) configs from this [YouTube video](https://www.youtube.com/watch?v=E2mKJ73M9pg&t=1s) as a proof of concept
 
 
 First of all, install the prerequisites
