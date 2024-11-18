@@ -60,7 +60,7 @@ return {
         'nvim-treesitter/nvim-treesitter', build = ':TSUpdate',
     },
     { 'simrat39/rust-tools.nvim' },
-    { 'nvim-lua/plenary.nvim' ,}
+    { 'nvim-lua/plenary.nvim'},
     -- Latex
     {
         "lervag/vimtex"
