@@ -50,6 +50,17 @@ return {
         build = ":GoUpdateBinaries",
         ft = { "go" }
     },
+    -- Rust
+    {
+        'mrcjkb/rustaceanvim',
+        version = '^5', -- Recommended
+        lazy = false, -- This plugin is already lazy
+    },
+    {
+        'nvim-treesitter/nvim-treesitter', build = ':TSUpdate',
+    },
+    { 'simrat39/rust-tools.nvim' },
+    { 'nvim-lua/plenary.nvim' ,}
     -- Latex
     {
         "lervag/vimtex"

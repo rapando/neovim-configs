@@ -194,3 +194,46 @@ require('nvim_comment').setup({
         require('ts_context_commentstring.internal').update_commentstring()
     end,
 })
+
+-- RUST
+lspconfig.rust_analyzer.setup({
+    on_attach = function(client, bufnr)
+        local bufopts = { noremap = true, silent = true, buffer = bufnr }
+        vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
+        vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
+        -- format on save
+        vim.api.nvim_create_autocmd("BufWritePre", {
+            buffer = bufnr,
+            callback = function()
+                vim.lsp.buf.format({ async = false })
+            end
+        })
+    end,
+    settings = {
+        ["rust-analyzer"] = {
+            cargo = { allFeatures = true },
+            checkOnSave = { command = "clippy" }
+        },
+    },
+})
+
+local rt = require("rust-tools")
+
+rt.setup({
+    server = {
+        on_attach = function(_, bufnr)
+            -- keybindings for rust
+            local bufopts = { noremap = true, silent = true, buffer = bufnr }
+            vim.keymap.set("n", "<Leader>ca", rt.code_action_group.code_action_group, bufopts)
+            vim.keymap.set("n", "<Leader>rr", rt.runnables.runnables, bufopts)
+        end,
+    },
+})
+
+-- treesitter settings for rust and any other language
+require("nvim-treesitter.configs").setup({
+    ensure_installed = { "rust", "lua", "go", "c" },
+    highlight = { enabled = true },
+})
+
+
