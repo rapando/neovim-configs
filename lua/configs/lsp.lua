@@ -216,11 +216,14 @@ rt.setup({
             vim.keymap.set("n", "<Leader>c", rt.code_action_group.code_action_group, bufopts)
             vim.keymap.set("n", "<Leader>rr", rt.runnables.runnables, bufopts)
 
-            -- Format on save
+            -- Format and remove unused imports on save
             vim.api.nvim_create_autocmd("BufWritePre", {
                 buffer = bufnr,
                 callback = function()
                     vim.lsp.buf.format({ async = false })
+                    vim.lsp.buf.code_action({
+                        only = { 'source.organizeImports' },
+                    })
                 end,
             })
         end,
