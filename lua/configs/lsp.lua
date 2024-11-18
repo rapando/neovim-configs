@@ -232,7 +232,7 @@ rt.setup({
         end,
         settings = {
             ["rust-analyzer"] = {
-                cargo = { allFeatures = true },
+                cargo = { watch = false },
                 checkOnSave = { command = "clippy" },
                 memory = { max = 4096 },
             },
