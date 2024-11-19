@@ -2,9 +2,7 @@
 vim.o.background = "dark"
 
 -- set colorscheme
--- vim.cmd("colorscheme gruvbox")
--- vim.cmd("colorscheme bamboo")
-vim.cmd("colorscheme night-owl")
+vim.cmd("colorscheme tokyodark")
 
 -- enable the tabline
 vim.g['airline#extensions#tabline#enabled'] = 1
