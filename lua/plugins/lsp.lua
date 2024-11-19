@@ -75,5 +75,16 @@ return {
         dependencies = {'nvim-treesitter/nvim-treesitter'},
     },
     -- Javascript
-
+    {
+        'neoclide/coc.nvim', build = 'npm install --frozen-lockfile',
+    },
+    {
+        'yuezk/vim-js',
+    },
+    {
+        'HerringtonDarkholme/yats.vim',
+    },
+    {
+        'maxmellon/vim-jsx-pretty',
+    }
 }

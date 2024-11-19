@@ -39,6 +39,8 @@ lspconfig.gopls.setup {
     }
 }
 
+
+
 vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
 
 -- Go Linting
@@ -248,21 +250,8 @@ rt.setup({
   -- highlight = { enable = true },
 -- })
 
-
--- Javascript / TypeScript
-lspconfig.tsserver.setup({
-  on_attach = function(client, bufnr)
-    -- Disable formatting (optional if using a different formatter like Prettier)
-    client.server_capabilities.documentFormattingProvider = false
-
-    -- Keymaps for LSP features
-    local opts = { noremap = true, silent = true }
-    local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-
-    buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-    buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-    buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-    buf_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-    buf_set_keymap('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-  end,
-})
+-- Javascript
+-- Coc.nvim global extensions for TypeScript, TSLint, Prettier, and more
+vim.g.coc_global_extensions = {
+  'coc-tslint-plugin', 'coc-tsserver', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier'
+}
