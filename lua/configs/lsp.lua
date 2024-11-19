@@ -249,3 +249,20 @@ rt.setup({
 -- })
 
 
+-- Javascript / TypeScript
+lspconfig.tsserver.setup({
+  on_attach = function(client, bufnr)
+    -- Disable formatting (optional if using a different formatter like Prettier)
+    client.server_capabilities.documentFormattingProvider = false
+
+    -- Keymaps for LSP features
+    local opts = { noremap = true, silent = true }
+    local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+
+    buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+    buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+    buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+    buf_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+    buf_set_keymap('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+  end,
+})

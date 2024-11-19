@@ -9,6 +9,8 @@ First of all, install the prerequisites
 
 ```sh
 brew install neovim fd ripgrep fzf rust-analyzer lazygit cmake
+npm install -g typescript-language-serve
+
 
 # because neovim requires lua version 5.1 for some reason, install it manually
 curl -LO https://www.lua.org/ftp/lua-5.1.5.tar.gz
