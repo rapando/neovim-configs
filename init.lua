@@ -22,7 +22,7 @@ vim.opt.cursorline = true
 vim.opt.number = true
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
-vim.opt.guicursor = ""
+-- vim.opt.guicursor = ""
 vim.opt.softtabstop = 4
 vim.opt.showtabline = 4
 vim.cmd("filetype plugin indent on")
