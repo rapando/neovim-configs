@@ -4,4 +4,12 @@ return {
     {"vim-airline/vim-airline-themes"},
     { "ellisonleao/gruvbox.nvim" },
     { "ribru17/bamboo.nvim" },
+    { 
+        "oxfist/night-owl.nvim",
+        lazy = false,
+        priority = 1000,
+        config = function()
+            require("night-owl").setup()
+        end,
+    }
 }
