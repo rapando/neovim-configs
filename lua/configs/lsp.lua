@@ -165,31 +165,6 @@ require('lspconfig')['gopls'].setup {
 }
 
 
--- Latex
--- Set the viewer method to 'zathura' for VimTeX
-vim.g.vimtex_view_method = 'zathura'
-
--- Set the compiler method to 'latexmk' for VimTeX
-vim.g.vimtex_compiler_method = 'latexmk'
-
--- Uncomment and modify the following lines as necessary
--- vim.g.vimtex_view_general_viewer = 'open'
--- vim.g.vimtex_view_general_options = ''
-
--- Configure 'latexmk' settings for VimTeX
-vim.g.vimtex_compiler_latexmk = {
-    build_dir = '',
-    callback = 1,
-    continuous = 1,
-    executable = 'latexmk',
-    options = {
-        '-xelatex',
-        '-file-line-error',
-        '-interaction=nonstopmode',
-        '-synctex=1',
-    },
-}
-
 -- comments settings
 require('nvim_comment').setup({
     hook = function()
@@ -255,3 +230,19 @@ rt.setup({
 vim.g.coc_global_extensions = {
   'coc-tslint-plugin', 'coc-tsserver', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier'
 }
+
+-- note taking
+require('neorg').setup{
+    load = {
+        ["core.defaults"] = {}, -- Load default behavior
+        ["core.norg.concealer"] = {}, -- Icons and LaTeX rendering
+        ["core.norg.dirman"] = { -- Workspace management
+            config = {
+                workspaces = {
+                    notes = "~/Documents" -- Main workspace directory
+                }
+            }
+        }
+    }
+}
+

@@ -85,10 +85,6 @@ return {
     },
     { 'simrat39/rust-tools.nvim' },
     { 'nvim-lua/plenary.nvim'},
-    -- Latex
-    {
-        "lervag/vimtex"
-    },
     {
         'terrortylor/nvim-comment',
     },
@@ -108,5 +104,11 @@ return {
     },
     {
         'maxmellon/vim-jsx-pretty',
+    },
+    -- note taking
+    {
+        'nvim-neorg/neorg',
+        build = ':Neorg sync-parsers', -- Ensure Treesitter parsers are synced
+        dependencies = { 'nvim-lua/plenary.nvim' } -- Required dependency
     },
 }
