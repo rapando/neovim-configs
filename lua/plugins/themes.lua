@@ -7,4 +7,9 @@ return {
         lazy = false,
         priority = 1000,
     },
+    {
+  'nvimdev/dashboard-nvim',
+      event = 'VimEnter',
+     dependencies = { {'nvim-tree/nvim-web-devicons'}}
+    }
 }
