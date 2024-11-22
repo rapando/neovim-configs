@@ -4,7 +4,15 @@ return {
     },
     {
         "neovim/nvim-lspconfig",
+        dependencies = {
+            "williamboman/mason.nvim",
+            "williamboman/mason-lspconfig.nvim",
+        },
         config = function()
+            require("mason").setup()
+            require("mason-lspconfig").setup({
+                ensure_installed = { "pyright" },
+            })
             local lspconfig = require("lspconfig")
             lspconfig.ts_ls.setup{}
             lspconfig.pyright.setup{}
@@ -24,14 +32,23 @@ return {
             "onsails/lspkind-nvim",       -- Adds VSCode-like icons to autocompletion
             "L3MON4D3/LuaSnip",           -- Snippet engine
             "saadparwaiz1/cmp_luasnip",   -- Snippet source for nvim-cmp
+            "hrsh7th/cmp-buffer",
+            "hrsh7th/cmp-path",
         },
         config = function()
             local cmp = require("cmp")
             local lspkind = require("lspkind")
             cmp.setup({
+                snippet = {
+                    expand = function(args)
+                        require("luasnip").lsp_expand(args.body)
+                    end,
+                },
                 sources = {
                     { name = "nvim_lsp" },
                     { name = "luasnip" },
+                    { name = "buffer" },
+                    { name = "path" },
                 },
                 formatting = {
                     format = lspkind.cmp_format({
@@ -39,6 +56,11 @@ return {
                         maxwidth = 50,
                     }),
                 },
+                mapping = cmp.mapping.preset.insert({
+                    ["<Tab>"] = cmp.mapping.select_next_item(),
+                    ["<S-Tab>"] = cmp.mapping.select_prev_item(),
+                    ["<CR>"] = cmp.mapping.confirm({ select = true }),
+                }),
             })
         end,
     },
@@ -86,5 +108,5 @@ return {
     },
     {
         'maxmellon/vim-jsx-pretty',
-    }
+    },
 }

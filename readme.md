@@ -9,7 +9,7 @@ First of all, install the prerequisites
 
 ```sh
 brew install neovim fd ripgrep fzf rust-analyzer lazygit cmake node@22
-npm install -g typescript-language-server
+npm install -g typescript-language-server pyright
 
 
 # because neovim requires lua version 5.1 for some reason, install it manually
