@@ -106,15 +106,38 @@ return {
         'maxmellon/vim-jsx-pretty',
     },
     -- note taking
+    {
+        "vhyrro/luarocks.nvim",
+        priority = 1000, -- Very high priority is required, luarocks.nvim should run as the first plugin in your config.
+        config = true,
+    },
+    {
+        "nvim-neorg/lua-utils.nvim",
+    },
+    {
+        "nvim-neotest/nvim-nio",
+    },
+    {
+        "pysan3/pathlib.nvim",
+    },
 
     {
         "nvim-neorg/neorg",
         -- build = ":Neorg sync-parsers",
-        dependencies = { "nvim-lua/plenary.nvim" },
+        dependencies = { "luarocks.nvim" },
         config = function()
             require("neorg").setup({
                 load = {
                     ["core.defaults"] = {}, -- Load default functionality
+                    -- ["core.norg.dirman"] = { -- Directory manager
+                    --     config = {
+                    --         workspaces = {
+                    --             my_workspace = "~/Documents"
+                    --         }
+                    --     }
+                    -- },
+                    -- ["core.norg.concealer"] = {},
+                    -- ["core.norg.completion"] = {},
                 },
             })
         end,

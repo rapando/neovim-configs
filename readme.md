@@ -9,7 +9,7 @@ First of all, install the prerequisites
 
 ```sh
 brew install neovim fd ripgrep fzf rust-analyzer lazygit cmake node@22
-npm install -g typescript-language-server pyright
+npm install -g typescript-language-server pyright luajit
 
 
 # because neovim requires lua version 5.1 for some reason, install it manually
@@ -31,6 +31,17 @@ make
 sudo make install
 cd ..
 ```
+
+For neorg
+
+```sh
+luarocks install neorg --local
+echo 'export LUA_PATH="$HOME/.luarocks/share/lua/5.1/?.lua;$LUA_PATH"' >> ~/.zshrc
+echo 'export LUA_CPATH="$HOME/.luarocks/lib/lua/5.1/?.so;$LUA_CPATH"' >> ~/.zshrc
+source ~/.zshrc
+```
+
+
 
 Clean up
 
