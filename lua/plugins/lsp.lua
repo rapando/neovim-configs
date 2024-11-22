@@ -14,8 +14,8 @@ return {
                 ensure_installed = { "pyright" },
             })
             local lspconfig = require("lspconfig")
-            lspconfig.ts_ls.setup{}
-            lspconfig.pyright.setup{}
+            lspconfig.ts_ls.setup {}
+            lspconfig.pyright.setup {}
         end,
         opts = function()
             setup = {
@@ -28,10 +28,10 @@ return {
     {
         "hrsh7th/nvim-cmp",
         dependencies = {
-            "hrsh7th/cmp-nvim-lsp",       -- LSP source for nvim-cmp
-            "onsails/lspkind-nvim",       -- Adds VSCode-like icons to autocompletion
-            "L3MON4D3/LuaSnip",           -- Snippet engine
-            "saadparwaiz1/cmp_luasnip",   -- Snippet source for nvim-cmp
+            "hrsh7th/cmp-nvim-lsp",     -- LSP source for nvim-cmp
+            "onsails/lspkind-nvim",     -- Adds VSCode-like icons to autocompletion
+            "L3MON4D3/LuaSnip",         -- Snippet engine
+            "saadparwaiz1/cmp_luasnip", -- Snippet source for nvim-cmp
             "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-path",
         },
@@ -84,13 +84,13 @@ return {
         'nvim-treesitter/nvim-treesitter', build = ':TSUpdate',
     },
     { 'simrat39/rust-tools.nvim' },
-    { 'nvim-lua/plenary.nvim'},
+    { 'nvim-lua/plenary.nvim' },
     {
         'terrortylor/nvim-comment',
     },
     {
         'JoosepAlviste/nvim-ts-context-commentstring',
-        dependencies = {'nvim-treesitter/nvim-treesitter'},
+        dependencies = { 'nvim-treesitter/nvim-treesitter' },
     },
     -- Javascript
     {
@@ -106,9 +106,17 @@ return {
         'maxmellon/vim-jsx-pretty',
     },
     -- note taking
+
     {
-        'nvim-neorg/neorg',
-        build = ':Neorg sync-parsers', -- Ensure Treesitter parsers are synced
-        dependencies = { 'nvim-lua/plenary.nvim' } -- Required dependency
+        "nvim-neorg/neorg",
+        -- build = ":Neorg sync-parsers",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        config = function()
+            require("neorg").setup({
+                load = {
+                    ["core.defaults"] = {}, -- Load default functionality
+                },
+            })
+        end,
     },
 }

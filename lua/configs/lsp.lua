@@ -1,42 +1,42 @@
 local lspconfig = require("lspconfig")
 
 -- JS setup
-lspconfig.ts_ls.setup{}
+lspconfig.ts_ls.setup {}
 
 -- Python LSP
-lspconfig.pyright.setup{}
+lspconfig.pyright.setup {}
 
 -- Go LSP
 lspconfig.gopls.setup {
-    on_attach = function(client, bufnr)
-        local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-        local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+  on_attach = function(client, bufnr)
+    local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+    local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
-        buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+    buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-        local opts = { noremap=true, silent=true }
-        buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-        buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)  -- Equivalent of Ctrl+Click
-        buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)  -- Function documentation
-        buf_set_keymap('n', '<C-k>', '<Cmd>lua vim.lsp.buf.signature_help()<CR>', opts)  -- Parameter info
-        buf_set_keymap('n', 'gi', '<Cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-        buf_set_keymap('n', '<leader>wa', '<Cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-        buf_set_keymap('n', '<leader>wr', '<Cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-        buf_set_keymap('n', '<leader>wl', '<Cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-        buf_set_keymap('n', '<leader>D', '<Cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-        buf_set_keymap('n', '<leader>rn', '<Cmd>lua vim.lsp.buf.rename()<CR>', opts)
-        buf_set_keymap('n', 'gr', '<Cmd>lua vim.lsp.buf.references()<CR>', opts)
-        buf_set_keymap('n', '<leader>ca', '<Cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-        buf_set_keymap('n', '<leader>e', '<Cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
-        buf_set_keymap('n', '[d', '<Cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-        buf_set_keymap('n', ']d', '<Cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-        buf_set_keymap('n', '<leader>q', '<Cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-        buf_set_keymap('n', '<leader>so', [[<Cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>]], opts)
-    end,
+    local opts = { noremap = true, silent = true }
+    buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+    buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)            -- Equivalent of Ctrl+Click
+    buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)                  -- Function documentation
+    buf_set_keymap('n', '<C-k>', '<Cmd>lua vim.lsp.buf.signature_help()<CR>', opts)     -- Parameter info
+    buf_set_keymap('n', 'gi', '<Cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+    buf_set_keymap('n', '<leader>wa', '<Cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
+    buf_set_keymap('n', '<leader>wr', '<Cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
+    buf_set_keymap('n', '<leader>wl', '<Cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+    buf_set_keymap('n', '<leader>D', '<Cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+    buf_set_keymap('n', '<leader>rn', '<Cmd>lua vim.lsp.buf.rename()<CR>', opts)
+    buf_set_keymap('n', 'gr', '<Cmd>lua vim.lsp.buf.references()<CR>', opts)
+    buf_set_keymap('n', '<leader>ca', '<Cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+    buf_set_keymap('n', '<leader>e', '<Cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+    buf_set_keymap('n', '[d', '<Cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
+    buf_set_keymap('n', ']d', '<Cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+    buf_set_keymap('n', '<leader>q', '<Cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+    buf_set_keymap('n', '<leader>so', [[<Cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>]], opts)
+  end,
 
-    flags = {
-        debounce_text_changes = 150,
-    }
+  flags = {
+    debounce_text_changes = 150,
+  }
 }
 
 
@@ -110,7 +110,7 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 
 
 -- CMP Configs
-local cmp = require'cmp'
+local cmp = require 'cmp'
 
 cmp.setup({
   snippet = {
@@ -167,9 +167,9 @@ require('lspconfig')['gopls'].setup {
 
 -- comments settings
 require('nvim_comment').setup({
-    hook = function()
-        require('ts_context_commentstring.internal').update_commentstring()
-    end,
+  hook = function()
+    require('ts_context_commentstring.internal').update_commentstring()
+  end,
 })
 
 -- RUST
@@ -177,52 +177,51 @@ local rt = require("rust-tools")
 
 -- delay alerts
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-    timeout = 5000, -- 5 seconds
+  timeout = 5000,   -- 5 seconds
 })
 
 rt.setup({
-    tools = {
-        autoSetHints = true,
-        inlay_hints = {
-            show_parameter_hints = true,
-            parameter_hints_prefix = "<- ",
-            other_hints_prefix = "=> ",
-        },
+  tools = {
+    autoSetHints = true,
+    inlay_hints = {
+      show_parameter_hints = true,
+      parameter_hints_prefix = "<- ",
+      other_hints_prefix = "=> ",
     },
-    server = {
-        on_attach = function(client, bufnr)
-            local bufopts = { noremap = true, silent = true, buffer = bufnr }
-            -- Keybindings for LSP
-            vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
-            vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
-            vim.keymap.set("n", "<Leader>c", rt.code_action_group.code_action_group, bufopts)
-            vim.keymap.set("n", "<Leader>rr", rt.runnables.runnables, bufopts)
-            vim.keymap.set("n", "<Leader>rf", function()
-                vim.lsp.buf.format({ async = false })
-            end)
-            vim.keymap.set("n", "<Leader>ru", function()
-                vim.lsp.buf.code_action({
-                    only = { 'source.organizeImports' },
-                })
-            end)
-
-        end,
-        settings = {
-            ["rust-analyzer"] = {
-                cargo = { watch = false },
-                checkOnSave = { command = "clippy" },
-                memory = { max = 4096 },
-            },
-        },
+  },
+  server = {
+    on_attach = function(client, bufnr)
+      local bufopts = { noremap = true, silent = true, buffer = bufnr }
+      -- Keybindings for LSP
+      vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
+      vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
+      vim.keymap.set("n", "<Leader>c", rt.code_action_group.code_action_group, bufopts)
+      vim.keymap.set("n", "<Leader>rr", rt.runnables.runnables, bufopts)
+      vim.keymap.set("n", "<Leader>rf", function()
+        vim.lsp.buf.format({ async = false })
+      end)
+      vim.keymap.set("n", "<Leader>ru", function()
+        vim.lsp.buf.code_action({
+          only = { 'source.organizeImports' },
+        })
+      end)
+    end,
+    settings = {
+      ["rust-analyzer"] = {
+        cargo = { watch = false },
+        checkOnSave = { command = "clippy" },
+        memory = { max = 4096 },
+      },
     },
+  },
 })
 
 
 
 -- treesitter settings for rust and any other language
 -- require("nvim-treesitter.configs").setup({
-  -- ensure_installed = { "rust" },
-  -- highlight = { enable = true },
+-- ensure_installed = { "rust" },
+-- highlight = { enable = true },
 -- })
 
 -- Javascript
@@ -230,19 +229,3 @@ rt.setup({
 vim.g.coc_global_extensions = {
   'coc-tslint-plugin', 'coc-tsserver', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier'
 }
-
--- note taking
-require('neorg').setup{
-    load = {
-        ["core.defaults"] = {}, -- Load default behavior
-        ["core.norg.concealer"] = {}, -- Icons and LaTeX rendering
-        ["core.norg.dirman"] = { -- Workspace management
-            config = {
-                workspaces = {
-                    notes = "~/Documents" -- Main workspace directory
-                }
-            }
-        }
-    }
-}
-
