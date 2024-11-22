@@ -229,3 +229,11 @@ rt.setup({
 vim.g.coc_global_extensions = {
   'coc-tslint-plugin', 'coc-tsserver', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier'
 }
+
+-- note taking
+require('render-markdown').setup({
+  render_modes = true,
+  anti_conceal = {
+    enabled = true,
+  }
+})

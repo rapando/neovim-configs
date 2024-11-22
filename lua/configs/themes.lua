@@ -2,7 +2,7 @@
 vim.o.background = "dark"
 
 -- set colorscheme
-vim.cmd("colorscheme kanagawa")
+vim.cmd("colorscheme citruszest")
 
 -- enable the tabline
 vim.g['airline#extensions#tabline#enabled'] = 1
