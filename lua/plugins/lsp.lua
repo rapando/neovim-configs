@@ -81,7 +81,15 @@ return {
     },
     -- Rust
     {
-        'nvim-treesitter/nvim-treesitter', build = ':TSUpdate',
+        'nvim-treesitter/nvim-treesitter',
+        build = ':TSUpdate',
+        opts = {
+            ensure_installed = { "c", "lua", "vim", "vimdoc", "query" },
+            highlight = { enable = true },
+        },
+        config = function(_, opts)
+            require("nvim-treesitter.configs").setup(opts)
+        end,
     },
     { 'simrat39/rust-tools.nvim' },
     { 'nvim-lua/plenary.nvim' },
@@ -120,26 +128,16 @@ return {
     {
         "pysan3/pathlib.nvim",
     },
-
     {
         "nvim-neorg/neorg",
-        -- build = ":Neorg sync-parsers",
-        dependencies = { "luarocks.nvim" },
+        lazy = false,
+        version = "*",
         config = function()
-            require("neorg").setup({
-                load = {
-                    ["core.defaults"] = {}, -- Load default functionality
-                    -- ["core.norg.dirman"] = { -- Directory manager
-                    --     config = {
-                    --         workspaces = {
-                    --             my_workspace = "~/Documents"
-                    --         }
-                    --     }
-                    -- },
-                    -- ["core.norg.concealer"] = {},
-                    -- ["core.norg.completion"] = {},
-                },
-            })
+            require("neorg").setup {
+            }
+            vim.wo.foldlevel = 99
+            vim.wo.conceallevel = 2
         end,
     },
+
 }
