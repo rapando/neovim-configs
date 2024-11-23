@@ -7,6 +7,7 @@ return {
         lazy = false,
         priority = 1000,
     },
+    { 'pappasam/papercolor-theme-slim' },
     {
   'nvimdev/dashboard-nvim',
       event = 'VimEnter',

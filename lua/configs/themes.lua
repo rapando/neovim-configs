@@ -14,3 +14,12 @@ vim.g['airline#extensions#tabline#left_alt_sep'] = '|'
 require("dashboard").setup {
     theme = 'hyper',
 }
+
+-- user paper theme for markdown files
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markdown",
+  callback = function()
+    vim.cmd("colorscheme PaperColorSlim")
+    vim.o.background = "light"
+  end,
+})
