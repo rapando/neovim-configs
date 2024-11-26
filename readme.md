@@ -10,8 +10,8 @@ This assumes you have Go & Rust installed.
 ### Installation
 
 First of all, install the prerequisites.
-<mark>These instructions assume the usage of brew on Mac. If you have any other OS, please follow
-the installation instructions of each prerequisite</mark>
+\<mark\>These instructions assume the usage of brew on Mac. If you have any other OS, please follow
+the installation instructions of each prerequisite\</mark\>
 
 ```sh
 brew install neovim fd ripgrep fzf rust-analyzer lazygit cmake node@22
@@ -55,19 +55,19 @@ are the ones I mostly use.
 
 | Binding | Language/ Tech | Explanation | 
 | ---: | :--- | :---|
-| <leader>gg | General | Opens Lazygit interface |
-| <C-n> | General | Open or close the file tree |
-| <leader>v | General | Split vertically |
-| <leader>tt | General | Open terminal at the bottom |
-| <leader>f | General | Global search for a symbol |
-| <leader>o | General | Search for and open a file |
+| \<leader\>gg | General | Opens Lazygit interface |
+| \<C-n\> | General | Open or close the file tree |
+| \<leader\>v | General | Split vertically |
+| \<leader\>tt | General | Open terminal at the bottom |
+| \<leader\>f | General | Global search for a symbol |
+| \<leader\>o | General | Search for and open a file |
 | gD | Golang | Go to symbol declaration |
 | gd | Golang/ Rust | Go to symbol definition |
 | K | Golang/ Rust | Hover over a symbol to see a summary |
-| <leader>c | Rust | Code actions e.g optimizing import structure |
-|<leader>rr| Rust | Runnables, e.g cargo check |
-| <leader>rf | Rust | Format code |
-| <leader>ru | Rust | Organize imports |
+| \<leader\>c | Rust | Code actions e.g optimizing import structure |
+|\<leader\>rr| Rust | Runnables, e.g cargo check |
+| \<leader\>rf | Rust | Format code |
+| \<leader\>ru | Rust | Organize imports |
 
 #### Usage
 
@@ -86,4 +86,4 @@ open your folder using this command
 
 This is important especially when using a nvim client such as [neovide](https://github.com/neovide/neovide).
 
-> rapando
+\> rapando
