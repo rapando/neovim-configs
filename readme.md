@@ -10,6 +10,8 @@ This assumes you have Go & Rust installed.
 ### Installation
 
 First of all, install the prerequisites.
+<mark>These instructions assume the usage of brew on Mac. If you have any other OS, please follow
+the installation instructions of each prerequisite</mark>
 
 ```sh
 brew install neovim fd ripgrep fzf rust-analyzer lazygit cmake node@22
