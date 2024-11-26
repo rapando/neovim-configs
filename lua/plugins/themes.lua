@@ -1,4 +1,11 @@
 return {
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		main = "ibl",
+		---@module "ibl"
+		---@type ibl.config
+		opts = {},
+	},
     { "glepnir/dashboard-nvim" },  -- startup dashboard
     { "vim-airline/vim-airline" }, -- status line at the bottom
     { "vim-airline/vim-airline-themes" },

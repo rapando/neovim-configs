@@ -72,6 +72,15 @@ are the ones I mostly use.
 | \<leader\>rf | Rust | Format code |
 | \<leader\>ru | Rust | Organize imports |
 
+#### More commands
+
+| Command | Explanation | 
+| ---: | :--- |
+| Leet | Open Leetcode |
+
+For leetcode, sign in with cookie. Sign in to Leetcode, then copy the cookie from the browser's
+Application tab. Under the cookies, use leetcode.com and copy the value for LEETCODE_SESSION
+
 #### Usage
 
 You can open a folder using 
