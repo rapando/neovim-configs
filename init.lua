@@ -42,7 +42,8 @@ vim.opt.termguicolors = true
 -- manual formatting
 vim.keymap.set('n', 'gq', 'gq', { noremap = true, silent = true })
 
-
+-- Specific to neovide (clients for nvim)
+vim.o.guifont = "BlexMono Nerd Font Mono:h16"
 
 -- Make sure to setup `mapleader` and `maplocalleader` before
 -- loading lazy.nvim so that mappings are correct.
