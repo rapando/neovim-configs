@@ -61,6 +61,8 @@ are the ones I mostly use.
 | \<leader\>tt | General | Open terminal at the bottom |
 | \<leader\>f | General | Global search for a symbol |
 | \<leader\>o | General | Search for and open a file |
+| \<leader\>m | General | Multi-cursor select. Replacement for \<C-n\> for keymaps declared [here](https://github.com/mg979/vim-visual-multi) |
+
 | gD | Golang | Go to symbol declaration |
 | gd | Golang/ Rust | Go to symbol definition |
 | K | Golang/ Rust | Hover over a symbol to see a summary |
