@@ -8,9 +8,5 @@ return {
         priority = 1000,
     },
     { 'pappasam/papercolor-theme-slim' },
-    {
-  'nvimdev/dashboard-nvim',
-      event = 'VimEnter',
-     dependencies = { {'nvim-tree/nvim-web-devicons'}}
-    }
-}
+    { 'nyoom-engineering/oxocarbon.nvim' },
+  }
