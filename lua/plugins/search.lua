@@ -19,5 +19,9 @@ return {
                 ["Find Subword Under"]  = "<leader>M"   -- optional, for subword matches 
             }
         end,
-    }
+    },
+	{
+		"nvim-pack/nvim-spectre",
+	}
+
 }

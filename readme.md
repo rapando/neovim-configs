@@ -54,7 +54,7 @@ The leader key is mapped to 'spacebar'. You can get all the keybindings from lua
 are the ones I mostly use.
 
 | Binding | Language/ Tech | Explanation | 
-| ---: | :--- | :---|
+| :--- | :--- | :---|
 | \<leader\>gg | General | Opens Lazygit interface |
 | \<C-n\> | General | Open or close the file tree |
 | \<C-t\> or Right click| General | Open menu options |
@@ -64,6 +64,9 @@ are the ones I mostly use.
 | \<leader\>o | General | Search for and open a file |
 | \<leader\>gc | General | Show Git status in floating window |
 | \<leader\>m | General | Multi-cursor select. \<C-n\> [more](https://github.com/mg979/vim-visual-multi?tab=readme-ov-file#vim-visual-multi) |
+| \<leader\>S | General | Open search interface |
+| \<leader\>sw | General | Search current word |
+| \<leader\>sp | General | Search current file |
 | gD | Golang | Go to symbol declaration |
 | gd | Golang/ Rust | Go to symbol definition |
 | K | Golang/ Rust | Hover over a symbol to see a summary |
