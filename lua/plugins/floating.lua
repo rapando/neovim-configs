@@ -34,5 +34,11 @@ return {
 				url = "https://vtip.43z.one",
 			})
 		end,
+	},
+	{
+		"nvzone/volt", 
+	},
+	{
+		"nvzone/menu",
 	}
 }

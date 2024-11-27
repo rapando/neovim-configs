@@ -57,13 +57,13 @@ are the ones I mostly use.
 | ---: | :--- | :---|
 | \<leader\>gg | General | Opens Lazygit interface |
 | \<C-n\> | General | Open or close the file tree |
+| \<C-t\> or Right click| General | Open menu options |
 | \<leader\>v | General | Split vertically |
 | \<leader\>tt | General | Open terminal at the bottom |
 | \<leader\>f | General | Global search for a symbol |
 | \<leader\>o | General | Search for and open a file |
 | \<leader\>gc | General | Show Git status in floating window |
-| \<leader\>m | General | Multi-cursor select. Replacement for \<C-n\> for keymap as referenced
-[here](https://github.com/mg979/vim-visual-multi?tab=readme-ov-file#vim-visual-multi) |
+| \<leader\>m | General | Multi-cursor select. \<C-n\> [more](https://github.com/mg979/vim-visual-multi?tab=readme-ov-file#vim-visual-multi) |
 | gD | Golang | Go to symbol declaration |
 | gd | Golang/ Rust | Go to symbol definition |
 | K | Golang/ Rust | Hover over a symbol to see a summary |
