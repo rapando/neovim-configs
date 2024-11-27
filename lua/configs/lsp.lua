@@ -208,9 +208,13 @@ rt.setup({
     end,
     settings = {
       ["rust-analyzer"] = {
+		  diagnostics = {
+			  enable = true,
+			  disabled = { "warnings" },
+		  },
         cargo = { watch = false },
         checkOnSave = { command = "clippy" },
-        memory = { max = 4096 },
+        memory = { max = 2048 },
       },
     },
   },
@@ -237,3 +241,20 @@ require('render-markdown').setup({
     enabled = true,
   }
 })
+
+-- highlight similar symbols 
+require("nvim-cursorline").setup{
+	cursorline = {
+		enable = true,
+		timeout = 1000,
+		number = false,
+	},
+	cursorword = {
+		enable = true,
+		min_length = 3,
+		hl = { underline = true },
+	}
+}
+
+
+
