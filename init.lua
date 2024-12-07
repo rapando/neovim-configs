@@ -35,8 +35,6 @@ vim.opt.textwidth = 100
 vim.opt.formatoptions:append('cro') -- auto wrap comments
 vim.opt.smartindent = true
 vim.opt.termguicolors = true
-vim.opt.colorcolumn = "100"
-vim.cmd([[highlight ColorColumn ctermbg=0 guibg=lightgrey]])
 
 -- manual formatting
 vim.keymap.set('n', 'gq', 'gq', { noremap = true, silent = true })

@@ -116,9 +116,12 @@ cmp.setup({
   snippet = {
     expand = function(args)
       require('luasnip').lsp_expand(args.body)
+	  vim.fn["vsnip#anonymous"](args.body)
     end,
   },
   mapping = {
+	['<C-Space'] = cmp.mapping.complete(),
+	['<CR>'] = cmp.mapping.confirm({ select = true }),
     ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
     ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
     -- ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
@@ -134,8 +137,10 @@ cmp.setup({
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
-  }, {
+  },
+  {
     { name = 'buffer' },
+	{ name = 'vsnip' },
   })
 })
 
@@ -256,5 +261,15 @@ require("nvim-cursorline").setup{
 	}
 }
 
+-- LATEX
+-- Vimtex settings for Neovim
+vim.g.vimtex_view_method = 'zathura'  -- Use Zathura for PDF preview
+vim.g.vimtex_compiler_method = 'latexmk'  -- Use latexmk for compilation
+vim.g.vimtex_quickfix_mode = 0  -- Disable quickfix on errors
+vim.g.vimtex_fold_enabled = 1  -- Enable folding for LaTeX sections
 
+
+vim.keymap.set('n', '<leader>lt', 'VimtexCompile<CR>', { noremap = true, silent = true })
+-- vim.keymap.set('n', '<leader>lv', 'VimtexView<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>lv', ':!zathura output.pdf<CR>', { noremap = true, silent = true })
 

@@ -39,6 +39,18 @@ sudo make install
 cd ..
 ```
 
+---
+### Latex
+In case you are using Latex,
+
+```sh 
+brew install mactex zathura
+```
+
+When you write *.tex files, it will auto-compile on save. You can open the pdf file in your favorite
+viewer.
+---
+
 Download a nerd font from this [website](https://www.nerdfonts.com/font-downloads) and set it as your terminal font.
 
 Install these configs
