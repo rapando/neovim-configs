@@ -37,6 +37,3 @@ vim.keymap.set("n", "<RightMouse>", function()
 	require("menu").open(options, { mouse = true, border = false })
 end, {})
 
-require("notify").setup({
-	background_color = '#000000',
-})
