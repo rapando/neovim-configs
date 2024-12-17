@@ -2,14 +2,7 @@
 vim.o.background = "dark"
 
 -- set colorscheme
-require("bluloco").setup({
-	style = "dark",
-	transparent = true,
-	italics = true,
-	terminal = vim.fn.has("gui_running") ==  1,
-	guicursor = true,
-})
-vim.cmd("colorscheme bluloco")
+vim.cmd("colorscheme poimandres")
 vim.opt.background = "dark"
 
 -- enable the tabline

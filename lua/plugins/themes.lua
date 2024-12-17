@@ -22,4 +22,9 @@ return {
 		priority = 1000,
 		dependencies = { "rktjmp/lush.nvim" }
 	},
+	{
+		'olivercederborg/poimandres.nvim',
+		lazy = false,
+		priority = 1000,
+	},
 }
