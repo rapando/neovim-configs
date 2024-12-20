@@ -2,8 +2,8 @@
 vim.o.background = "dark"
 
 -- set colorscheme
-vim.cmd("colorscheme gruvbox")
-vim.opt.background = "dark"
+vim.cmd("colorscheme sonokai")
+-- vim.opt.background = "dark"
 
 -- enable the tabline
 vim.g['airline#extensions#tabline#enabled'] = 1
