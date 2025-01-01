@@ -17,3 +17,18 @@ vim.keymap.set("v", "<leader>sw", '<esc><cmd>lua require("spectre").open_visual(
 vim.keymap.set("n", "<leader>sp", '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', {
 	desc = "Search on current file"
 })
+
+-- ignore these directories in live grep search 
+require("telescope").setup{
+	defaults = {
+		file_ignore_patterns = {
+			"node_modules",
+			".git",
+			"build",
+			"tmp",
+			"target",
+			"__pycache__",
+			"dist",
+		}
+	}
+}
