@@ -35,6 +35,10 @@ vim.opt.textwidth = 100
 vim.opt.formatoptions:append('cro') -- auto wrap comments
 vim.opt.smartindent = true
 vim.opt.termguicolors = true
+vim.opt.lazyredraw = true
+
+-- force redraw with leader+r 
+vim.api.nvim_set_keymap('n', '<leader>r', ':redraw!<CR>', { noremap = true, silent = true })
 
 -- manual formatting
 vim.keymap.set('n', 'gq', 'gq', { noremap = true, silent = true })
