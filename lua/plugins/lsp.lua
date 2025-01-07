@@ -26,6 +26,11 @@ return {
             local lspconfig = require("lspconfig")
             lspconfig.ts_ls.setup {}
             lspconfig.pyright.setup {}
+			lspconfig.intelephense.setup({
+				cmd = { "intelephense", "--stdio" },
+				filetypes = { "php" },
+				root_dir = lspconfig.util.root_pattern("composer.json", ".git"),
+			})
         end,
         opts = function()
             setup = {
@@ -131,6 +136,57 @@ return {
         ---@module 'render-markdown'
         ---@type render.md.UserConfig
         opts = {},
-    }
+    },
+
+	-- PHP
+	{
+		'sheerun/vim-polyglot',
+		lazy = false,
+	},
+	{
+		'phpactor/phpactor',
+		build = function()
+			vim.fn.system({"composer", "install", "--no-dev", "--optimize-autoloader"})
+		end,
+		config = function()
+			vim.g.phpactorMappingEnabled = false
+		end,
+	},
+
+	-- debugging
+	{
+		"mfussenegger/nvim-dap",
+		dependencies = {
+		  "rcarriga/nvim-dap-ui",
+          "nvim-neotest/nvim-nio",
+		},
+		config = function()
+		  local dap = require("dap")
+		  local dapui = require("dapui")
+
+		  dapui.setup()
+		  dap.adapters.php = {
+			type = "executable",
+			command = "node",
+			args = { "vscode-php-debug/out/phpDebug.js" },
+		  }
+		  dap.configurations.php = {
+			{
+			  type = "php",
+			  request = "launch",
+			  name = "Listen for Xdebug",
+			  port = 9003,
+			},
+		  }
+
+		  -- Keybindings for debugging
+		  vim.keymap.set("n", "<F5>", function() dap.continue() end)
+		  vim.keymap.set("n", "<F10>", function() dap.step_over() end)
+		  vim.keymap.set("n", "<F11>", function() dap.step_into() end)
+		  vim.keymap.set("n", "<F12>", function() dap.step_out() end)
+		end,
+	  },
+
+
 
 }
