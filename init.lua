@@ -6,7 +6,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   if vim.v.shell_error ~= 0 then
     vim.api.nvim_echo({
       { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-      { out, "WarningMsg" },
+      { out,                            "WarningMsg" },
       { "\nPress any key to exit..." },
     }, true, {})
     vim.fn.getchar()
@@ -30,14 +30,14 @@ vim.cmd("syntax enable")
 vim.opt.clipboard:append("unnamedplus")
 -- Add fzf to the runtime path (rtp)
 vim.opt.rtp:append('/opt/homebrew/opt/fzf')
-vim.opt.incsearch = true -- shows matches when you type
+vim.opt.incsearch = true            -- shows matches when you type
 vim.opt.textwidth = 100
 vim.opt.formatoptions:append('cro') -- auto wrap comments
 vim.opt.smartindent = true
 vim.opt.termguicolors = true
 vim.opt.lazyredraw = true
 
--- force redraw with leader+r 
+-- force redraw with leader+r
 vim.api.nvim_set_keymap('n', '<leader>r', ':redraw!<CR>', { noremap = true, silent = true })
 
 -- manual formatting
