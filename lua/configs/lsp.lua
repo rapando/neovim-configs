@@ -18,7 +18,7 @@ lspconfig.gopls.setup {
     buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
     buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)        -- Equivalent of Ctrl+Click
     buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)              -- Function documentation
-    buf_set_keymap('n', '<C-k>', '<Cmd>lua vim.lsp.buf.signature_help()<CR>', opts) -- Parameter info
+    buf_set_keymap('n', '<A-k>', '<Cmd>lua vim.lsp.buf.signature_help()<CR>', opts) -- Parameter info
     buf_set_keymap('n', 'gi', '<Cmd>lua vim.lsp.buf.implementation()<CR>', opts)
     buf_set_keymap('n', '<leader>wa', '<Cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
     buf_set_keymap('n', '<leader>wr', '<Cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
@@ -116,17 +116,17 @@ cmp.setup({
   snippet = {
     expand = function(args)
       require('luasnip').lsp_expand(args.body)
-	  vim.fn["vsnip#anonymous"](args.body)
+      vim.fn["vsnip#anonymous"](args.body)
     end,
   },
   mapping = {
-	['<C-Space'] = cmp.mapping.complete(),
-	['<CR>'] = cmp.mapping.confirm({ select = true }),
-    ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
-    ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
-    -- ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-    ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
-    ['<C-e>'] = cmp.mapping({
+    ['<A-Space'] = cmp.mapping.complete(),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+    ['<A-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
+    ['<A-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
+    -- ['<A-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+    ['<A-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<A-y>` mapping.
+    ['<A-e>'] = cmp.mapping({
       i = cmp.mapping.abort(),
       c = cmp.mapping.close(),
     }),
@@ -135,13 +135,13 @@ cmp.setup({
     ['<S-Tab>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 's' }),
   },
   sources = cmp.config.sources({
-    { name = 'nvim_lsp' },
-    { name = 'luasnip' },
-  },
-  {
-    { name = 'buffer' },
-	{ name = 'vsnip' },
-  })
+      { name = 'nvim_lsp' },
+      { name = 'luasnip' },
+    },
+    {
+      { name = 'buffer' },
+      { name = 'vsnip' },
+    })
 })
 
 cmp.setup.cmdline('/', {
@@ -213,10 +213,10 @@ rt.setup({
     end,
     settings = {
       ["rust-analyzer"] = {
-		  diagnostics = {
-			  enable = true,
-			  disabled = { "warnings" },
-		  },
+        diagnostics = {
+          enable = true,
+          disabled = { "warnings" },
+        },
         cargo = { watch = false },
         checkOnSave = { command = "clippy" },
         memory = { max = 2048 },
@@ -247,29 +247,28 @@ require('render-markdown').setup({
   }
 })
 
--- highlight similar symbols 
-require("nvim-cursorline").setup{
-	cursorline = {
-		enable = true,
-		timeout = 1000,
-		number = false,
-	},
-	cursorword = {
-		enable = true,
-		min_length = 3,
-		hl = { underline = true },
-	}
+-- highlight similar symbols
+require("nvim-cursorline").setup {
+  cursorline = {
+    enable = true,
+    timeout = 1000,
+    number = false,
+  },
+  cursorword = {
+    enable = true,
+    min_length = 3,
+    hl = { underline = true },
+  }
 }
 
 -- LATEX
 -- Vimtex settings for Neovim
-vim.g.vimtex_view_method = 'zathura'  -- Use Zathura for PDF preview
-vim.g.vimtex_compiler_method = 'latexmk'  -- Use latexmk for compilation
-vim.g.vimtex_quickfix_mode = 0  -- Disable quickfix on errors
-vim.g.vimtex_fold_enabled = 1  -- Enable folding for LaTeX sections
+vim.g.vimtex_view_method = 'zathura'     -- Use Zathura for PDF preview
+vim.g.vimtex_compiler_method = 'latexmk' -- Use latexmk for compilation
+vim.g.vimtex_quickfix_mode = 0           -- Disable quickfix on errors
+vim.g.vimtex_fold_enabled = 1            -- Enable folding for LaTeX sections
 
 
 vim.keymap.set('n', '<leader>lt', 'VimtexCompile<CR>', { noremap = true, silent = true })
 -- vim.keymap.set('n', '<leader>lv', 'VimtexView<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>lv', ':!zathura output.pdf<CR>', { noremap = true, silent = true })
-

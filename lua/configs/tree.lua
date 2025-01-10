@@ -9,13 +9,13 @@ require("nvim-tree").setup({
         side = "left",
     },
     filters = {
-        dotfiles = false,  -- show all dotfiles by default
+        dotfiles = false, -- show all dotfiles by default
     },
     git = {
-        ignore = false,  -- Show gitignored files
+        ignore = false, -- Show gitignored files
     },
     renderer = {
-		-- root_folder_label = false,
+        -- root_folder_label = false,
         icons = {
             show = {
                 file = true,
@@ -27,16 +27,17 @@ require("nvim-tree").setup({
 })
 
 
--- <C-n> opens/closes nvim-tree
-vim.api.nvim_set_keymap("n", "<C-m>", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
+-- <A-n> opens/closes nvim-tree
+vim.api.nvim_set_keymap("n", "<A-m>", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
 
 -- Mapping to open file in a vertical split to the right
-vim.api.nvim_set_keymap('n', '<leader>v', ':vsplit <C-R>=expand("%:p:h")<CR>/<C-R>=expand("%:t")<CR><CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>v', ':vsplit <A-R>=expand("%:p:h")<CR>/<A-R>=expand("%:t")<CR><CR>',
+    { noremap = true, silent = true })
 
 
 -- Mapping to open file in a vertical split to the left
 vim.api.nvim_set_keymap('n', '<leader>V', ':leftabove vsplit<CR>', { noremap = true, silent = true })
 
 -- Mapping to search for a file before opening it
-vim.api.nvim_set_keymap('n', '<leader>o', "<cmd>lua require('telescope.builtin').find_files()<CR>", { noremap = true, silent = true })
-
+vim.api.nvim_set_keymap('n', '<leader>o', "<cmd>lua require('telescope.builtin').find_files()<CR>",
+    { noremap = true, silent = true })

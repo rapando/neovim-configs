@@ -68,14 +68,14 @@ are the ones I mostly use.
 | Binding | Language/ Tech | Explanation | 
 | :--- | :--- | :---|
 | \<leader\>gg | General | Opens Lazygit interface |
-| \<C-m\> | General | Open or close the file tree |
-| \<C-t\> or Right click| General | Open menu options |
+| \<A-m\> | General | Open or close the file tree |
+| \<A-t\> or Right click| General | Open menu options |
 | \<leader\>v | General | Split vertically |
 | \<leader\>tt | General | Open terminal at the bottom |
 | \<leader\>f | General | Global search for a symbol |
 | \<leader\>o | General | Search for and open a file |
 | \<leader\>gc | General | Show Git status in floating window |
-| \<leader\>m | General | Multi-cursor select. \<C-n\> [more](https://github.com/mg979/vim-visual-multi?tab=readme-ov-file#vim-visual-multi) |
+| \<leader\>m | General | Multi-cursor select. \<A-n\> [more](https://github.com/mg979/vim-visual-multi?tab=readme-ov-file#vim-visual-multi) |
 | \<leader\>S | General | Open search interface |
 | \<leader\>sw | General | Search current word |
 | \<leader\>sp | General | Search current file |
