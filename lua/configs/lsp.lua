@@ -261,14 +261,3 @@ require("nvim-cursorline").setup {
   }
 }
 
--- LATEX
--- Vimtex settings for Neovim
-vim.g.vimtex_view_method = 'zathura'     -- Use Zathura for PDF preview
-vim.g.vimtex_compiler_method = 'latexmk' -- Use latexmk for compilation
-vim.g.vimtex_quickfix_mode = 0           -- Disable quickfix on errors
-vim.g.vimtex_fold_enabled = 1            -- Enable folding for LaTeX sections
-
-
-vim.keymap.set('n', '<leader>lt', 'VimtexCompile<CR>', { noremap = true, silent = true })
--- vim.keymap.set('n', '<leader>lv', 'VimtexView<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>lv', ':!zathura output.pdf<CR>', { noremap = true, silent = true })
