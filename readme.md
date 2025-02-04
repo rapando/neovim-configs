@@ -69,7 +69,7 @@ are the ones I mostly use.
 | :--- | :--- | :---|
 | \<leader\>gg | General | Opens Lazygit interface |
 | \<A-m\> | General | Open or close the file tree |
-| \<A-t\> or Right click| General | Open menu options |
+| \<leader\>n or Right click| General | Open menu options |
 | \<leader\>v | General | Split vertically |
 | \<leader\>tt | General | Open terminal at the bottom |
 | \<leader\>f | General | Global search for a symbol |

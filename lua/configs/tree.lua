@@ -27,8 +27,8 @@ require("nvim-tree").setup({
 })
 
 
--- <A-n> opens/closes nvim-tree
-vim.api.nvim_set_keymap("n", "<A-m>", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
+-- <leader-n> opens/closes nvim-tree
+vim.api.nvim_set_keymap("n", "<leader>-n", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
 
 -- Mapping to open file in a vertical split to the right
 vim.api.nvim_set_keymap('n', '<leader>v', ':vsplit <A-R>=expand("%:p:h")<CR>/<A-R>=expand("%:t")<CR><CR>',
