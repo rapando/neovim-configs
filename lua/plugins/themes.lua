@@ -3,18 +3,8 @@ return {
     { "vim-airline/vim-airline-themes" },
 	-- themes
 	{
-		'sainnhe/sonokai',
+		"ribru17/bamboo.nvim",
 		lazy = false,
 		priority = 1000,
-	},
-	{
-		"olimorris/onedarkpro.nvim",
-		priority = 1000, -- Ensure it loads first
-	},
-	{
-		"eldritch-theme/eldritch.nvim",
-		lazy = false,
-		priority = 1000,
-		opts = {},
 	}
 }
