@@ -68,7 +68,7 @@ are the ones I mostly use.
 | Binding | Language/ Tech | Explanation | 
 | :--- | :--- | :---|
 | \<leader\>gg | General | Opens Lazygit interface |
-| \<A-m\> | General | Open or close the file tree |
+| \<leader\>m | General | Open or close the file tree |
 | \<leader\>n or Right click| General | Open menu options |
 | \<leader\>v | General | Split vertically |
 | \<leader\>tt | General | Open terminal at the bottom |
