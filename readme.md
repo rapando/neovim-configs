@@ -79,6 +79,9 @@ are the ones I mostly use.
 | \<leader\>S | General | Open search interface |
 | \<leader\>sw | General | Search current word |
 | \<leader\>sp | General | Search current file |
+| \<leader\>tf | General | Find Todos |
+| ]t | General | Find next TODO |
+| [t | General | Find Previous TODO |
 | gD | Golang | Go to symbol declaration |
 | gd | Golang/ Rust | Go to symbol definition |
 | K | Golang/ Rust | Hover over a symbol to see a summary |
