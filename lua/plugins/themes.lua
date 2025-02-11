@@ -14,5 +14,9 @@ return {
 		config = function()
 			require("nordic").load()
 		end
+	},
+	{
+		"olimorris/onedarkpro.nvim",
+		priority = 1000,
 	}
 }

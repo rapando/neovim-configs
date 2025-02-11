@@ -2,7 +2,7 @@
 vim.o.background = "dark"
 
 -- set colorscheme
-vim.cmd("colorscheme bamboo")
+vim.cmd("colorscheme onedark_dark")
 -- vim.opt.background = "dark"
 
 -- enable the tabline
