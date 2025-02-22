@@ -36,6 +36,12 @@ vim.opt.formatoptions:append('cro') -- auto wrap comments
 vim.opt.smartindent = true
 vim.opt.termguicolors = true
 vim.opt.lazyredraw = true
+-- change font
+vim.o.guifont = "BlexMono Nerd Font Mono:h16"
+vim.o.lazyredraw = false
+
+-- disable word wrap 
+vim.o.wrap = false
 
 -- force redraw with leader+r
 vim.api.nvim_set_keymap('n', '<leader>r', ':redraw!<CR>', { noremap = true, silent = true })
