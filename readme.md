@@ -111,7 +111,7 @@ Then inside `neovim`
 
 ```sh 
 :Mason
-:MasonInstall
+:MasonInstall gopls pyright ltex-ls
 ```
 
 #### Usage
