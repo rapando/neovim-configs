@@ -99,6 +99,21 @@ are the ones I mostly use.
 For leetcode, sign in with cookie. Sign in to Leetcode, then copy the cookie from the browser's
 Application tab. Under the cookies, use leetcode.com and copy the value for LEETCODE_SESSION
 
+#### Post Installation
+
+Install `gopls` 
+
+```sh 
+go install golang.org/x/tools/gopls@latest
+```
+
+Then inside `neovim` 
+
+```sh 
+:Mason
+:MasonInstall
+```
+
 #### Usage
 
 You can open a folder using 
