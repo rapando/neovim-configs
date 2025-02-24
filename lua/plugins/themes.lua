@@ -1,22 +1,16 @@
 return {
 	{ "vim-airline/vim-airline" }, -- status line at the bottom
     { "vim-airline/vim-airline-themes" },
-	-- themes
 	{
-		"ribru17/bamboo.nvim",
-		lazy = false,
-		priority = 1000,
-	},
-	{
-		"AlexvZyl/nordic.nvim",
-		lazy = false,
-		priority = 1000,
+		"lukas-reineke/virt-column.nvim",
 		config = function()
-			require("nordic").load()
+			require("virt-column").setup({ char = "|", virtcolumn = "120" })
 		end
 	},
+	-- themes
 	{
-		"olimorris/onedarkpro.nvim",
+		"navarasu/onedark.nvim",
+		lazy = false,
 		priority = 1000,
-	}
+	},
 }
