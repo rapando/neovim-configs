@@ -38,7 +38,7 @@ vim.opt.smartindent = true
 vim.opt.termguicolors = true
 vim.opt.lazyredraw = true
 -- change font
-vim.o.guifont = "FiraMono Nerd Font Mono:h18"
+vim.o.guifont = "Cousine:h16"
 vim.o.lazyredraw = false
 
 -- disable word wrap 
